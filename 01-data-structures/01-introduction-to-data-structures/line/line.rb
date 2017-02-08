@@ -15,6 +15,7 @@ class Line
   end
 
   def front
+    return members[0]
   end
 
   def middle
