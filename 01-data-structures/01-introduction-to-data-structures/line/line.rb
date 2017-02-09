@@ -9,22 +9,32 @@ class Line
   end
 
   def join(person)
+    members.push(person)
   end
 
   def leave(person)
-    test
+    doodAt = members.index(person)
+    members.delete_at(doodAt)
+            #or
+    #members.delete(person)
   end
 
   def front
+    members.first
   end
 
   def middle
+    mid = members.length/2
+    members[mid]
   end
 
   def back
+    members.last
   end
 
   def search(person)
+    dudeAt = members.index(person)
+    members[dudeAt]
   end
 
   private
