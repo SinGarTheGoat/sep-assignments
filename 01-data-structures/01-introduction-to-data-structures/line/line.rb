@@ -12,6 +12,7 @@ class Line
   end
 
   def leave(person)
+    test
   end
 
   def front
