@@ -13,10 +13,16 @@ class Line
   end
 
   def leave(person)
-    doodAt = members.index(person)
-    members.delete_at(doodAt)
+    #doodAt = members.index(person)
+    #members.delete_at(doodAt)
             #or
     #members.delete(person)
+            #or
+    #members.delete_if{|x| x==person}
+            #or
+    doodAt = members.index(person)
+    doodAt = doodAt.to_i
+    members.delete_at(doodAt)
   end
 
   def front
@@ -34,6 +40,9 @@ class Line
 
   def search(person)
     dudeAt = members.index(person)
+    if dudeAt == nil
+      return nil
+    end
     members[dudeAt]
   end
 
