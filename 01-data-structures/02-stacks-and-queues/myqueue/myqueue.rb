@@ -13,7 +13,7 @@ class MyQueue
   end
 
   def dequeue
-    num = @queue.first
+    num = @queue.fir
     @queue.delete_at(num)
   end
 
