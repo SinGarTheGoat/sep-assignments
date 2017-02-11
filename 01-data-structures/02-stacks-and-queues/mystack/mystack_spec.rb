@@ -23,9 +23,6 @@ RSpec.describe MyStack, type: Class do
 
   describe "#pop" do
     it "pops an item off the top of the stack and returns it" do
-      puts "1"
-      puts stack.top
-      puts "2"
       stack.push("Ben")
       puts stack.top
       stack.push("Rob")
