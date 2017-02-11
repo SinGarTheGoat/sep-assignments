@@ -8,13 +8,16 @@ class MyQueue
   end
 
   def enqueue(element)
-    @queue << element
+    @queue.unshift(element)
     @head = element
+    @tail = @queue.last
+
   end
 
   def dequeue
-    num = @queue.fir
-    @queue.delete_at(num)
+    num = @queue.last
+    num.to_i
+    @queue.drop(num)
   end
 
   def empty?

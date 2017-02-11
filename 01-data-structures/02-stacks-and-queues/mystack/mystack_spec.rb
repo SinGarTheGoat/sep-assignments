@@ -23,11 +23,17 @@ RSpec.describe MyStack, type: Class do
 
   describe "#pop" do
     it "pops an item off the top of the stack and returns it" do
+      puts "1"
+      puts stack.top
+      puts "2"
       stack.push("Ben")
+      puts stack.top
       stack.push("Rob")
+      puts stack.top
       expect(stack.top).to eq "Rob"
       item = stack.pop
       expect(item).to eq "Rob"
+      puts stack.top
       expect(stack.top).to eq "Ben"
       item = stack.pop
       expect(item).to eq "Ben"
