@@ -15,9 +15,7 @@ class MyQueue
   end
 
   def dequeue
-    num = @queue.last
-    num.to_i
-    @queue.drop(num)
+    @queue.delete_at(0)
   end
 
   def empty?

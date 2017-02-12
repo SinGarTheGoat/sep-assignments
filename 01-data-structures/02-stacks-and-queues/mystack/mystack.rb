@@ -13,9 +13,11 @@ class MyStack
 
   def pop
     len = @stack.length
-    @stack.delete_at(len)
+    upDog = self.top
+    @stack.delete_at(len-1)
     self.top = @stack.last
     #puts self.top
+    upDog
   end
 
 
