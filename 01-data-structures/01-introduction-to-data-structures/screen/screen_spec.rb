@@ -5,11 +5,10 @@ RSpec.describe Screen, type: Class do
 
   describe "#insert" do
     it "inserts a pixel at the proper x, y coordinates" do
-        
+
      #It is calling "p" in screen.insert(p, 1, 1) why are we using p and not pixle
       pixel = Pixel.new(255, 200, 175, 1, 1)
       screen.insert(pixel, 1, 1)
-
       expect(screen.at(1, 1)).to eq pixel
     end
 
@@ -26,6 +25,9 @@ RSpec.describe Screen, type: Class do
 
   describe "#at" do
     it "returns the pixel at a specific location" do
+      # i believe this test needed this
+      #line to pass  and added it
+      pixel = Pixel.new(255, 200, 175, 1, 2) #added and changed (1,1)=>(1,2)
       screen.insert(pixel, 1, 2)
       p1 = screen.at(1, 2)
 
