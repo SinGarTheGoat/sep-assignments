@@ -11,7 +11,7 @@ RSpec.describe MyStack, type: Class do
       stack.push("Rob")
       expect(stack.top).to eq "Rob"
     end
-
+#
     it "pushes an item on top of the stack" do
       expect(stack.top).to eq nil
       stack.push("Rob")

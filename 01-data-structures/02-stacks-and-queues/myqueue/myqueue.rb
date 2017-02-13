@@ -22,3 +22,4 @@ class MyQueue
     @queue.empty?
   end
 end
+#
