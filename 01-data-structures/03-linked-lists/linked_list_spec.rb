@@ -24,6 +24,7 @@ RSpec.describe LinkedList, type: Class do
       llist.add_to_tail(n2)
       expect(llist.tail).to eq n2
       llist.remove_tail
+
       expect(llist.tail).to eq n1
       llist.remove_tail
       expect(llist.tail).to eq nil
