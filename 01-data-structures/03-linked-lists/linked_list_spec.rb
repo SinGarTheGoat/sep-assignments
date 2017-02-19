@@ -9,7 +9,7 @@ RSpec.describe LinkedList, type: Class do
   let(:n3) { Node.new("Mike") }
   let(:llist) { LinkedList.new }
 
-  describe "#add_to_tail" do
+  describe "#add_to_tail" do #DONE
     it "adds a Node to the tail" do
       llist.add_to_tail(n1)
       expect(llist.tail).to eq n1
@@ -18,7 +18,7 @@ RSpec.describe LinkedList, type: Class do
     end
   end
 
-  describe "#remove_tail" do
+  describe "#remove_tail" do #DONE
     it "removes nodes from the tail" do
       llist.add_to_tail(n1)
       llist.add_to_tail(n2)
@@ -31,7 +31,7 @@ RSpec.describe LinkedList, type: Class do
     end
   end
 
-  describe "#print" do
+  describe "#print" do #DONE
     before do
       llist.add_to_tail(n1)
       llist.add_to_tail(n2)
@@ -47,7 +47,7 @@ RSpec.describe LinkedList, type: Class do
       llist.add_to_tail(n3)
     end
 
-    it "removes the head of a list properly" do
+    it "removes the head of a list properly" do #done
       llist.delete(n1)
       expect(llist.head).to eq n2
       expect(llist.head.next).to eq n3
