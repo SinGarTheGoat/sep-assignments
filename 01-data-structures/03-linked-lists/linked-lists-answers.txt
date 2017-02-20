@@ -1,0 +1,7 @@
+1Q-What is Spatial Locality and why does it benefit performance?
+
+1A-Spatial locality is the use of data elements within close
+    storage situations. By having data nodes close together it takes
+    less time for operations to be completed.
+
+2Q-
