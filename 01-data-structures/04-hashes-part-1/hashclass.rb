@@ -5,13 +5,19 @@ class HashClass
   end
 
   def []=(key, value)# assigns values and keys
-    index(key, size)
-    #[key]value
+      #if value already exists
+      #if nil than assign value
+      #if different value its a collision and you
+      #resize and insert again
+      
+
+    @items[index(key, size)] = value
+    #HashclassObject[key] = value
   end
 
   def [](key) #retrives value from key
+     @items[index(key, @items.length)]
 
-    
   end
 
   def resize
@@ -21,9 +27,11 @@ class HashClass
     new_size = @items.length * 2
     newRay = Array.new(new_size)
     @items.each_with_index{|entry,index|
-      newRay[index] = index(entry,new_size)
+      if entry == nil
+      else newRay[index] = entry
+    end
     }
-    return newRay
+    @items = newRay
   end
 
   # Returns a unique, deterministically reproducible index into an array
