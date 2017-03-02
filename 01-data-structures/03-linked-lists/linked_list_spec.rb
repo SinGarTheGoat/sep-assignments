@@ -90,4 +90,51 @@ RSpec.describe LinkedList, type: Class do
       expect(llist.head).to eq nil
     end
   end
+
+
+
+#I MADE THESE
+  describe "#insert_node_index_specfic" do
+    it "inserts a node at front" do
+      llist.insert_node_index_specfic(n3, 0)
+      expect(llist.head).to eq n3
+    end
+
+    it "inserts node in middle" do
+
+      llist.add_to_front(n1)
+      expect(llist.head).to eq n1
+      llist.add_to_front(n2)
+      expect(llist.head).to eq n2
+      llist.insert_node_index_specfic(n3, 1)
+      llist.remove_front
+      expect(llist.head).to eq n3
+    end
+  end
+
+  describe "#return_at" do #DONE
+    before do
+      llist.add_to_tail(n1)
+      llist.add_to_tail(n2)
+      llist.add_to_tail(n3)
+    end
+    specify { expect { llist.return_at(1) }.to output("Ben\n").to_stdout }
+  end
+
+  # describe "#delete_at" do
+  #   before do
+  #     llist.add_to_tail(n1)
+  #     llist.add_to_tail(n2)
+  #     llist.add_to_tail(n3)
+  #   end
+  #   it "deletes a node at a given index" do
+  #     llist.delete_at(1)
+  #     expect(llist.head).to eq n1
+  #     expect(llist.tail).to eq n3
+  #     expect()
+  #   end
+  # end
+
+
+
 end

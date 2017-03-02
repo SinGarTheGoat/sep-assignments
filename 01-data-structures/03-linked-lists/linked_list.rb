@@ -77,14 +77,20 @@ class LinkedList
 
         while examined_node != node
             before_examined_node = examined_node
-            examined_node = examined_node.next
+
+            if examined_node.next == nil
+
+              else
+
+                examined_node = examined_node.next
+            end
             after_examined_node = examined_node.next
 
             if examined_node == node
               temp = before_examined_node
               before_examined_node.next = after_examined_node
             end
-          end 
+          end
     end
   end
   # This method adds `node` to the front of the list and must set the list's head to `node`.
@@ -102,4 +108,46 @@ class LinkedList
   def remove_front
     @head = @head.next
   end
+
+  def insert_node_index_specfic(node, index)
+    counter = 0
+    if index == 0
+        add_to_front(node)
+      else
+        examined_node = @head
+        after_examined_node = @head.next
+        while counter != index do
+          counter = counter+1
+          before_examined_node = examined_node
+          examined_node = examined_node.next
+          after_examined_node = examined_node.next
+        end
+        before_examined_node.next = node
+        node.next = after_examined_node
+      end
+  end
+
+  def return_at(index)
+    counter = 0
+    if counter == index
+      puts @head.data
+    else
+      current = @head
+      while counter != index do
+        counter = counter+1
+        if current.next == nil
+          break
+        else
+          current = current.next
+        end
+      end
+      puts current.data
+    end
+  end
+
+  def delete_at(index)
+
+  end
+
+
 end

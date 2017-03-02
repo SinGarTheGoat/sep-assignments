@@ -1,4 +1,4 @@
-include RSpec 
+include RSpec
 
 require_relative 'hash_item'
 require_relative 'hashclass'
@@ -55,6 +55,8 @@ RSpec.describe HashClass, type: Class do
       hash = HashClass.new(1)
       hash["key"] = "value"
       expect(hash.size).to eq 1
+
+
       hash["key"] = "different"
       expect(hash.size).to eq 2
     end
