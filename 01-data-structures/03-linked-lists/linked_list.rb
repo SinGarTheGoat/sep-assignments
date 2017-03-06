@@ -158,7 +158,7 @@ class LinkedList
         counter = counter+1
 
         if counter =index
-          if current = nil
+          if current == nil
             return
           end
           previous.next =current.next

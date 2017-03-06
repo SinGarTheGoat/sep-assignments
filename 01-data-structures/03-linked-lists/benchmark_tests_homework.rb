@@ -45,7 +45,7 @@ Benchmark.bm do |x|   #Compare the time it takes to remove the 5000th element fr
 
   x.report("delete 5000th node in LinkedList") do
 
-    bob.delete_at(2)  #(4999)  #create this method
+    bob.delete_at(4999)  #(4999)  #create this method
     # Insert 10000 items into bob
   end
 end

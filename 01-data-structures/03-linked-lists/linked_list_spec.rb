@@ -136,13 +136,32 @@ RSpec.describe LinkedList, type: Class do
       llist.delete_at(1)
       llist.remove_tail
       expect(llist.head).to eq n1
-
       expect(llist.tail).to eq n1
-
-      #expect()
     end
+
+
   end
 
+
+
+  # describe "#delete_at complex" do
+  #   before do
+  #     llist.add_to_tail(n1)
+  #     llist.add_to_tail(n2)
+  #     llist.add_to_tail(n3)
+  #     llist.add_to_tail(n4)
+  #     llist.add_to_tail(n5)
+  #     llist.add_to_tail(n6)
+  #   end
+  #   it "deletes a node at a given index complex" do
+  #     llist.delete_at(6)
+  #     llist.remove_tail
+  #     expect(llist.tail).to eq n4
+  #   end
+  #
+  #
+  # end
+  #
 
 
 end
