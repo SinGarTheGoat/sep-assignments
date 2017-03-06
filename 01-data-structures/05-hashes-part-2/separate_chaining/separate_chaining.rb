@@ -12,11 +12,11 @@ class SeparateChaining
     @ray_o_lists =[]
   end
 
-  def []=(key, value)
+  def []=(key, value) #this inserts new values into the hash
 
 
 
-    @inserts += 1 #make sure it is a sucessful insertion
+  #  @inserts += 1 #make sure it is a sucessful insertion
   end
 
   def [](key)

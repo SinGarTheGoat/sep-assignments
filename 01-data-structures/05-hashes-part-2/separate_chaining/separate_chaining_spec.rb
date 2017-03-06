@@ -1,4 +1,4 @@
-include RSpec 
+include RSpec
 
 require_relative 'separate_chaining'
 
@@ -14,15 +14,15 @@ RSpec.describe SeparateChaining, type: Class do
     star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
   end
 
-  describe "#index" do
-    it "creates a hash key based on the string value passed in" do
+  describe "#index" do #DONE
+    it "creates a hash key based on the string value passed in" do #done
       i = star_wars_movies.index("Star Wars: A New Hope", 6)
       expect(i).to eq 4
     end
   end
 
-  describe "#key" do
-    it "returns the sum of the ascii values of the string value" do
+  describe "#key" do #DONE
+    it "returns the sum of the ascii values of the string value" do #done
       key = "test"
       expect(star_wars_movies.index(key, 6)).to eq 4
     end
