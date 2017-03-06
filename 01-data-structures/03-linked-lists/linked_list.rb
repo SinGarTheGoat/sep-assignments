@@ -146,6 +146,25 @@ class LinkedList
   end
 
   def delete_at(index)
+    counter = 0
+    current = @head
+    if counter == index
+      @head = @head.next
+    else
+      while counter < index do
+
+        previous = current
+        current = current.next
+        counter = counter+1
+
+        if counter =index
+          if current = nil
+            return
+          end
+          previous.next =current.next
+        end
+      end
+    end
 
   end
 

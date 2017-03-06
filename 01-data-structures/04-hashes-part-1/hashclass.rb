@@ -9,7 +9,7 @@ class HashClass
 
 
 
- 
+
   def []=(key, value)# assigns values and keys
       #if value already exists
       #if nil than assign value
@@ -22,9 +22,16 @@ class HashClass
 
           hash_item = HashItem.new(key, value)
           @items[index(key, size)] = hash_item
-      elsif value != hash_item.value
+      elsif value != hash_item.value && key == hash_item.key
           resize()
-          self[key]= value
+          hash_item = HashItem.new(key, value)
+          @items[index(key, size)] = hash_item
+          #self[key]= value
+      elsif value == hash_item.value && key == hash_item.key
+
+      else #value != hash_item.value && key != hash_item.key
+        resize()
+        self[key]= value
       end
 
       #   @items[index(key, size())] = HashItem.new(key, value)
@@ -63,6 +70,7 @@ class HashClass
     new_size = @items.length * 2
     newRay = Array.new(new_size)
     @items.each_with_index{|hash_item,index|
+      #print  "#{@items.length}       "
       if hash_item == nil
       else newRay[index(hash_item.key, new_size)] = hash_item
     end

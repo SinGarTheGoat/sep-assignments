@@ -7,6 +7,11 @@ RSpec.describe LinkedList, type: Class do
   let(:n1) { Node.new("Rob") }
   let(:n2) { Node.new("Ben") }
   let(:n3) { Node.new("Mike") }
+
+  let(:n4) { Node.new("Tom") }
+  let(:n5) { Node.new("Dick") }
+  let(:n6) { Node.new("Harry") }
+
   let(:llist) { LinkedList.new }
 
   describe "#add_to_tail" do #DONE
@@ -121,19 +126,22 @@ RSpec.describe LinkedList, type: Class do
     specify { expect { llist.return_at(1) }.to output("Ben\n").to_stdout }
   end
 
-  # describe "#delete_at" do
-  #   before do
-  #     llist.add_to_tail(n1)
-  #     llist.add_to_tail(n2)
-  #     llist.add_to_tail(n3)
-  #   end
-  #   it "deletes a node at a given index" do
-  #     llist.delete_at(1)
-  #     expect(llist.head).to eq n1
-  #     expect(llist.tail).to eq n3
-  #     expect()
-  #   end
-  # end
+  describe "#delete_at" do
+    before do
+      llist.add_to_tail(n1)
+      llist.add_to_tail(n2)
+      llist.add_to_tail(n3)
+    end
+    it "deletes a node at a given index" do
+      llist.delete_at(1)
+      llist.remove_tail
+      expect(llist.head).to eq n1
+
+      expect(llist.tail).to eq n1
+
+      #expect()
+    end
+  end
 
 
 
