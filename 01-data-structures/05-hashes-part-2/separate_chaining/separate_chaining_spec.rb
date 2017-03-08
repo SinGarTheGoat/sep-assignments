@@ -13,47 +13,47 @@ RSpec.describe SeparateChaining, type: Class do
     star_wars_movies["Star Wars: The Empire Strikes Back"] = "Number Five"
     star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
   end
-
-  describe "#index" do #DONE
-    it "creates a hash key based on the string value passed in" do
-      i = star_wars_movies.index("Star Wars: A New Hope", 6)
-      expect(i).to eq 4
-    end
-  end
-
-  describe "#key" do #DONE
-    it "returns the sum of the ascii values of the string value" do
-      key = "test"
-      expect(star_wars_movies.index(key, 6)).to eq 4
-    end
-  end
-
-  describe "#hash[key] = value" do   #DONE # Does this mean same keys insted of values
-    it "does not resize the array when a collision occurs and the values match" do
-      hash = SeparateChaining.new(4)   #Changed this ti minus 1 and am getting the
-        # same answer as when 4 was passed in
-      hash["key"] = "value"
-      expect(hash.size).to eq 4
-      hash["key"] = "second value"
-      expect(hash.size).to eq 4
-    end
-
-    it "sets the value of key to value" do
-      star_wars_movies["Star Wars: The Phantom Menace"] = "Number One"
-      star_wars_movies["Star Wars: Attack of the Clones"] = "Number Two"
-      star_wars_movies["Star Wars: Revenge of the Sith"] = "Number Three"
-      star_wars_movies["Star Wars: A New Hope"] = "Number Four"
-      star_wars_movies["Star Wars: The Empire Strikes Back"] = "Number Five"
-      star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
-
-      expect(star_wars_movies["Star Wars: The Phantom Menace"]).to eq "Number One"
-      expect(star_wars_movies["Star Wars: Attack of the Clones"]).to eq "Number Two"
-      expect(star_wars_movies["Star Wars: Revenge of the Sith"]).to eq "Number Three"
-      expect(star_wars_movies["Star Wars: A New Hope"]).to eq "Number Four"
-      expect(star_wars_movies["Star Wars: The Empire Strikes Back"]).to eq "Number Five"
-      expect(star_wars_movies["Star Wars: Return of the Jedi"]).to eq "Number Six"
-    end
-  end
+  # 
+  # describe "#index" do #DONE
+  #   it "creates a hash key based on the string value passed in" do
+  #     i = star_wars_movies.index("Star Wars: A New Hope", 6)
+  #     expect(i).to eq 4
+  #   end
+  # end
+  #
+  # describe "#key" do #DONE
+  #   it "returns the sum of the ascii values of the string value" do
+  #     key = "test"
+  #     expect(star_wars_movies.index(key, 6)).to eq 4
+  #   end
+  # end
+  #
+  # describe "#hash[key] = value" do   #DONE # Does this mean same keys insted of values
+  #   it "does not resize the array when a collision occurs and the values match" do
+  #     hash = SeparateChaining.new(4)   #Changed this ti minus 1 and am getting the
+  #       # same answer as when 4 was passed in
+  #     hash["key"] = "value"
+  #     expect(hash.size).to eq 4
+  #     hash["key"] = "second value"
+  #     expect(hash.size).to eq 4
+  #   end
+  #
+  #   it "sets the value of key to value" do
+  #     star_wars_movies["Star Wars: The Phantom Menace"] = "Number One"
+  #     star_wars_movies["Star Wars: Attack of the Clones"] = "Number Two"
+  #     star_wars_movies["Star Wars: Revenge of the Sith"] = "Number Three"
+  #     star_wars_movies["Star Wars: A New Hope"] = "Number Four"
+  #     star_wars_movies["Star Wars: The Empire Strikes Back"] = "Number Five"
+  #     star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
+  #
+  #     expect(star_wars_movies["Star Wars: The Phantom Menace"]).to eq "Number One"
+  #     expect(star_wars_movies["Star Wars: Attack of the Clones"]).to eq "Number Two"
+  #     expect(star_wars_movies["Star Wars: Revenge of the Sith"]).to eq "Number Three"
+  #     expect(star_wars_movies["Star Wars: A New Hope"]).to eq "Number Four"
+  #     expect(star_wars_movies["Star Wars: The Empire Strikes Back"]).to eq "Number Five"
+  #     expect(star_wars_movies["Star Wars: Return of the Jedi"]).to eq "Number Six"
+  #   end
+  # end
 
   describe "#load_factor" do
     it "returns the number of items in the hash divided by the size of the underlying array" do

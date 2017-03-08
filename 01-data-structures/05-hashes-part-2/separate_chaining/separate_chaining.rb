@@ -19,6 +19,7 @@ class SeparateChaining
       @values[target_index].add_to_tail(Node.new(key, value))
       else
         @values[target_index] = LinkedList.new
+        @values[target_index].add_to_tail(Node.new(key, value))
     end
 
 
@@ -63,7 +64,7 @@ class SeparateChaining
 
     if load_fak >= @max_load_factor    #need to get resize right to finish this
       resize()
-      #load_factor()
+      load_factor()
     end
     load_fak
   end
@@ -78,10 +79,50 @@ class SeparateChaining
   def resize #Doubles the array
     new_size = @values.length * 2
     new_ray = Array.new(new_size)
-    @values.each{|node|
-    puts  node.inspect
+    puts "just got into resize  "
+    puts @values.size
+    # @values.each{|indice|
+    #   puts indice.inspect
+    #
+    # }
+    # puts "done with first looping"
+    @values.each{|linked_list|
+      #go through each index of the array
+      #each index is either nil or contins a linked list with one or more items
+      #grab the key and value pair in each node and store it as a hash in an array
+      #go through my array of hashes and send the key through the index method
+      #set the key/value pair to the proper index in the array
+
+      puts "looping through values"
+
+      unless linked_list.nil?
+        puts "found a linked_list"
+
+        current = linked_list.head
+        new_ray[index(current.key, new_size)] = Node.new(current.key, current.value)
+        unless current.next.nil?
+          puts "has a next"
+          while current.next != nil
+            puts "has more next"
+            current = current.next
+            puts current.key
+
+            new_ray[index(current.key, new_size)] = Node.new(current.key, current.value)
+        #puts  linked_list.head.key
+        #take each index of the array (each with 1 node linked list and )
+          end
+          new_ray[index(current.key, new_size)] = Node.new(current.key, current.value)
+
+        end
+      end
+
+    }
+    @values = new_ray
+    new_ray.each{|indice|
+      puts indice.inspect
 
     }
     puts "new"
+
   end
 end
