@@ -15,22 +15,23 @@ RSpec.describe SeparateChaining, type: Class do
   end
 
   describe "#index" do #DONE
-    it "creates a hash key based on the string value passed in" do #done
+    it "creates a hash key based on the string value passed in" do
       i = star_wars_movies.index("Star Wars: A New Hope", 6)
       expect(i).to eq 4
     end
   end
 
   describe "#key" do #DONE
-    it "returns the sum of the ascii values of the string value" do #done
+    it "returns the sum of the ascii values of the string value" do
       key = "test"
       expect(star_wars_movies.index(key, 6)).to eq 4
     end
   end
 
-  describe "#hash[key] = value" do
+  describe "#hash[key] = value" do   #DONE # Does this mean same keys insted of values
     it "does not resize the array when a collision occurs and the values match" do
-      hash = SeparateChaining.new(4)
+      hash = SeparateChaining.new(4)   #Changed this ti minus 1 and am getting the
+        # same answer as when 4 was passed in
       hash["key"] = "value"
       expect(hash.size).to eq 4
       hash["key"] = "second value"
@@ -69,6 +70,7 @@ RSpec.describe SeparateChaining, type: Class do
 
       # Load factor goes down to .375 (3/8) since when third item is added, load factor goes to .75
       # then the resize is triggered and load factor is recalculated
+
       expect(h.load_factor).to eq 0.375
     end
   end
