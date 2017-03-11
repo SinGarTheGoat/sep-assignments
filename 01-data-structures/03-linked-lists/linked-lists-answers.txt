@@ -4,4 +4,21 @@
     storage situations. By having data nodes close together it takes
     less time for operations to be completed.
 
-2Q-
+2Q-Compare the performance of an Array to a Linked List using the
+    Benchmark module.
+    -Part 1:  Compare the time it takes to create a 10,000 item Array to
+              appending 10,000 items to a Linked List.
+        A-It is much faster to insert 10,000 items into a linked list than
+        an array. It takes 0.000171 of a second to create the array compared
+        with 0.000018 of a second with a Linked List
+
+    -Part 2:  Compare the time it takes to access the 5000th element of the
+              Array and the 5000th Node in the Linked List.
+        A- Here it is faster to access the 5000th element of an array
+        (0.000015 of a second), than with the linked list's (0.000047)
+
+    -Part 3:  Compare the time it takes to remove the 5000th element from
+              the Array to removing the 5000th Node in the Linked List.
+        A-   Here the array is faster ( 0.000019 of a second), but only 
+            negligibly with linked list doing the job in  0.000026 of a
+          second.
