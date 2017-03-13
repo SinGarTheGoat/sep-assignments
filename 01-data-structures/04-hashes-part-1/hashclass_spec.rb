@@ -3,17 +3,18 @@ include RSpec
 require_relative 'hash_item'
 require_relative 'hashclass'
 
+
 RSpec.describe HashClass, type: Class do
   let(:lotr_movies) { HashClass.new(6) }
 
-  describe "#index" do
+  describe "#index" do  #Done
     it "creates a hash key based on the string value passed in" do
       i = lotr_movies.index("The Lord of the Rings: The Fellowship of the Ring", 6)
       expect(i).to eq 5
     end
   end
 
-  describe "#key" do
+  describe "#key" do   #Done
     it "returns the sum of the ascii values of the string value" do
       key = "test"
       expect(lotr_movies.index(key, 6)).to eq 4
@@ -23,6 +24,7 @@ RSpec.describe HashClass, type: Class do
   describe "#resize" do
     it "doubles the size of the array when invoked" do
       expect(lotr_movies.size).to eq 6
+
       lotr_movies.resize
       expect(lotr_movies.size).to eq 12
     end
@@ -53,6 +55,8 @@ RSpec.describe HashClass, type: Class do
       hash = HashClass.new(1)
       hash["key"] = "value"
       expect(hash.size).to eq 1
+
+
       hash["key"] = "different"
       expect(hash.size).to eq 2
     end

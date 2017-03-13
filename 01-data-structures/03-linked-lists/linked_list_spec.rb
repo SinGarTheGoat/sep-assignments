@@ -7,9 +7,14 @@ RSpec.describe LinkedList, type: Class do
   let(:n1) { Node.new("Rob") }
   let(:n2) { Node.new("Ben") }
   let(:n3) { Node.new("Mike") }
+
+  let(:n4) { Node.new("Tom") }
+  let(:n5) { Node.new("Dick") }
+  let(:n6) { Node.new("Harry") }
+
   let(:llist) { LinkedList.new }
 
-  describe "#add_to_tail" do
+  describe "#add_to_tail" do #DONE
     it "adds a Node to the tail" do
       llist.add_to_tail(n1)
       expect(llist.tail).to eq n1
@@ -18,19 +23,20 @@ RSpec.describe LinkedList, type: Class do
     end
   end
 
-  describe "#remove_tail" do
+  describe "#remove_tail" do #DONE
     it "removes nodes from the tail" do
       llist.add_to_tail(n1)
       llist.add_to_tail(n2)
       expect(llist.tail).to eq n2
       llist.remove_tail
+
       expect(llist.tail).to eq n1
       llist.remove_tail
       expect(llist.tail).to eq nil
     end
   end
 
-  describe "#print" do
+  describe "#print" do #DONE
     before do
       llist.add_to_tail(n1)
       llist.add_to_tail(n2)
@@ -46,7 +52,7 @@ RSpec.describe LinkedList, type: Class do
       llist.add_to_tail(n3)
     end
 
-    it "removes the head of a list properly" do
+    it "removes the head of a list properly" do #done
       llist.delete(n1)
       expect(llist.head).to eq n2
       expect(llist.head.next).to eq n3
@@ -89,4 +95,73 @@ RSpec.describe LinkedList, type: Class do
       expect(llist.head).to eq nil
     end
   end
+
+
+
+#I MADE THESE
+  describe "#insert_node_index_specfic" do
+    it "inserts a node at front" do
+      llist.insert_node_index_specfic(n3, 0)
+      expect(llist.head).to eq n3
+    end
+
+    it "inserts node in middle" do
+
+      llist.add_to_front(n1)
+      expect(llist.head).to eq n1
+      llist.add_to_front(n2)
+      expect(llist.head).to eq n2
+      llist.insert_node_index_specfic(n3, 1)
+      llist.remove_front
+      expect(llist.head).to eq n3
+    end
+  end
+
+  describe "#return_at" do #DONE
+    before do
+      llist.add_to_tail(n1)
+      llist.add_to_tail(n2)
+      llist.add_to_tail(n3)
+    end
+    specify { expect { llist.return_at(1) }.to output("Ben\n").to_stdout }
+  end
+
+  describe "#delete_at" do
+    before do
+      llist.add_to_tail(n1)
+      llist.add_to_tail(n2)
+      llist.add_to_tail(n3)
+    end
+    it "deletes a node at a given index" do
+      llist.delete_at(1)
+      llist.remove_tail
+      expect(llist.head).to eq n1
+      expect(llist.tail).to eq n1
+    end
+
+
+  end
+
+
+
+  # describe "#delete_at complex" do
+  #   before do
+  #     llist.add_to_tail(n1)
+  #     llist.add_to_tail(n2)
+  #     llist.add_to_tail(n3)
+  #     llist.add_to_tail(n4)
+  #     llist.add_to_tail(n5)
+  #     llist.add_to_tail(n6)
+  #   end
+  #   it "deletes a node at a given index complex" do
+  #     llist.delete_at(6)
+  #     llist.remove_tail
+  #     expect(llist.tail).to eq n4
+  #   end
+  #
+  #
+  # end
+  #
+
+
 end
