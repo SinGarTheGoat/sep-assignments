@@ -1,0 +1,7 @@
+Q2- Explain why doubling the size of the underlying array of your
+    HashClass may be a poor idea.
+
+A2- When an arrays size is doubled this forces the program to
+    iterate over more indices and increases the search and load
+    time for arrays. Indices in arrays must be stored in memory
+    sequentially, making large arrays more taxing on the system.
