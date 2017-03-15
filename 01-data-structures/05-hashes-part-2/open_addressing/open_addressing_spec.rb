@@ -1,4 +1,4 @@
-include RSpec 
+include RSpec
 
 require_relative 'node'
 require_relative 'open_addressing'
@@ -15,21 +15,21 @@ RSpec.describe OpenAddressing, type: Class do
     star_wars_movies["Star Wars: Return of the Jedi"] = "Number Six"
   end
 
-  describe "#index" do
+  describe "#index" do #DONE
     it "creates a hash key based on the string value passed in" do
       i = star_wars_movies.index("Star Wars: A New Hope", 6)
       expect(i).to eq 4
     end
   end
 
-  describe "#key" do
+  describe "#key" do #DONE
     it "returns the sum of the ascii values of the string value" do
       key = "test"
       expect(star_wars_movies.index(key, 6)).to eq 4
     end
   end
 
-  describe "#hash[key] = value" do
+  describe "#hash[key] = value" do #DONE
     it "does not resizes the array when a collision occurs and hash is not full" do
       hash = OpenAddressing.new(4)
       hash["key"] = "value"
@@ -43,6 +43,7 @@ RSpec.describe OpenAddressing, type: Class do
       hash["key"] = "value"
       expect(hash.size).to eq 1
       hash["key"] = "second value"
+      
       expect(hash.size).to eq 2
     end
 
