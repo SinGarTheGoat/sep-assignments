@@ -5,3 +5,7 @@ A2- When an arrays size is doubled this forces the program to
     iterate over more indices and increases the search and load
     time for arrays. Indices in arrays must be stored in memory
     sequentially, making large arrays more taxing on the system.
+
+    rather than doubling an array it is better to use the next prime
+    number greater to better affect the modular and more randomly
+    rehash the array.
