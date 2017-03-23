@@ -3,8 +3,15 @@ Q1-Describe three collision resolution strategies not mentioned here.
 A1-Hopscotch Hashing
 
 Robin Hood hashing
-
 2-choice hashing: Uses two different functions as well as linked lists to
   determine a place in the hash table. when a node is sorted the algorithm puts
-  the node at what ever bucket has the fewest nodes, defaulting to the first 
+  the node at what ever bucket has the fewest nodes, defaulting to the first
   function if there are equal nodes on both linked lists.
+
+Coalesced Chaining- here each bucket holds a value and a next value to point
+  to an alternate position incase of collision. when there is a collision the
+  algorithm starts at the bottom of the hash table and looks for the first
+  open index to put the entry, it then updates the original index's next value
+  to point to the new position.
+  A great explanation can be found at...
+  https://www.youtube.com/watch?v=9SPhD49ePXg
