@@ -6,11 +6,17 @@ class Heap
   end
 
   def insert(root, node)
+
+
+
     if root.left
       root.right = node
     else
       root.left = node
     end
+
+
+
   end
 
   def delete(root, data)
