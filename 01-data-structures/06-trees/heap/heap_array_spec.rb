@@ -33,7 +33,7 @@ RSpec.describe Heap, type: Class do
       expect(heap_o_shh.heap_array[2].title).to eq 'Star Wars: A New Hope'
     end
 
-    it 'creates a heap with 5 nodes and no rearainging required' do #DONE
+    it 'creates a heap with 7 nodes and no rearainging required' do #DONE
       heap_o_shh.insert(pacific_rim)
     #  puts heap_o_shh.heap_array
       heap_o_shh.insert(jedi)
