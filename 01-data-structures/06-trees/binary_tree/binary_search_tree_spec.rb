@@ -66,10 +66,17 @@ RSpec.describe BinarySearchTree, type: Class do
       expect(tree.find(root, nil)).to eq nil
     end
 
-    it "properly finds a left node" do
+    it "properly finds a left node" do #in progress
       tree.insert(root, pacific_rim)
+      tree.printf(root)
       expect(tree.find(root, pacific_rim.title).title).to eq "Pacific Rim"
     end
+
+
+
+
+
+
 
     it "properly finds a left-left node" do
       tree.insert(root, braveheart)

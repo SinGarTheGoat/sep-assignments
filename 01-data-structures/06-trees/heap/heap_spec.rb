@@ -20,11 +20,35 @@ RSpec.describe Heap, type: Class do
   let (:mad_max_2) { Node.new("Mad Max 2: The Road Warrior", 98) }
 
   describe "#insert(node)" do
-    it "creats the heap" do
-      heap_o_shh.insert(root, pacific_rim)
-        expect(root.left.title).to eq "Pacific Rim"
+    it "creates the heap with a left node" do
+      heap_o_shh.insert(pacific_rim, district)
+      heap_o_shh.node_array[4]
+      expect(root.left.title).to eq "District 9"
     end
+  #   it "creates the heap with a full second level" do
+  #     heap_o_shh.insert(root, pacific_rim)
+  #     heap_o_shh.insert(root, braveheart)
+  #     expect(root.left.title).to eq "The Matrix"
+  #     expect(root.right.title).to eq "Braveheart"
+  #   end
+  #
+  #   it "creates the heap with a full third level and a swap" do
+  #     heap_o_shh.insert(root, pacific_rim)
+  #     heap_o_shh.insert(root, braveheart)
+  #     heap_o_shh.insert(root, district)
+  #     heap_o_shh.insert(root, jedi)
+  #     heap_o_shh.insert(root, shawshank)
+  #     heap_o_shh.insert(root, martian)
+  #     expect(root.left).to eq "Star Wars: Return of the Jedi"
+  #     expect(root.left.right).to eq "The Matrix"
+  #   end
+   end
 
+  describe "#print(root)" do
+    it "prints a 2 node tree" do
+      heap_o_shh.insert(pacific_rim, root)
+      expect(root.left.title).to eq "The Matrix"
+    end
   end
 
 end
