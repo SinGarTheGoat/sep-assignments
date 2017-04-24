@@ -75,5 +75,118 @@ RSpec.describe Heap, type: Class do
       expect(heap_o_shh.heap_array[1].title).to eq 'The Matrix'
       expect(heap_o_shh.heap_array[2].title).to eq 'Braveheart'
     end
+
+    it 'creates a heap with 7 nodes and rearainging required' do
+
+    #  puts heap_o_shh.heap_array
+      heap_o_shh.insert(jedi)
+      heap_o_shh.insert(braveheart)
+      heap_o_shh.insert(donnie)
+      heap_o_shh.insert(inception)
+      heap_o_shh.insert(district)
+      heap_o_shh.insert(shawshank)
+      heap_o_shh.insert(pacific_rim)
+      #puts heap_o_shh.heap_array
+      expect(heap_o_shh.heap_array[0].title).to eq 'Pacific Rim'
+      expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+      expect(heap_o_shh.heap_array[2].title).to eq 'Braveheart'
+      expect(heap_o_shh.heap_array[3].title).to eq 'Inception'
+      expect(heap_o_shh.heap_array[4].title).to eq 'District 9'
+      expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
+      expect(heap_o_shh.heap_array[6].title).to eq 'Donnie Darko'
+    end
+
   end
+
+
+
+
+  describe 'find' do
+    it "returns true and prints the node if node is in the array" do
+      heap_o_shh.insert(jedi)
+      heap_o_shh.insert(braveheart)
+      heap_o_shh.insert(donnie)
+      heap_o_shh.insert(inception)
+      heap_o_shh.insert(district)
+      heap_o_shh.insert(shawshank)
+      heap_o_shh.insert(pacific_rim)
+      expect(heap_o_shh.heap_array[0].title).to eq 'Pacific Rim'
+      expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+      expect(heap_o_shh.heap_array[2].title).to eq 'Braveheart'
+      expect(heap_o_shh.heap_array[3].title).to eq 'Inception'
+      expect(heap_o_shh.heap_array[4].title).to eq 'District 9'
+      expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
+      expect(heap_o_shh.heap_array[6].title).to eq 'Donnie Darko'
+      expect(heap_o_shh.find(pacific_rim)).to eq true
+    end
+    it "returns false if  node is not in the array" do
+      heap_o_shh.insert(jedi)
+      heap_o_shh.insert(braveheart)
+      heap_o_shh.insert(donnie)
+      heap_o_shh.insert(inception)
+      heap_o_shh.insert(district)
+      heap_o_shh.insert(shawshank)
+      heap_o_shh.insert(pacific_rim)
+      expect(heap_o_shh.heap_array[0].title).to eq 'Pacific Rim'
+      expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+      expect(heap_o_shh.heap_array[2].title).to eq 'Braveheart'
+      expect(heap_o_shh.heap_array[3].title).to eq 'Inception'
+      expect(heap_o_shh.heap_array[4].title).to eq 'District 9'
+      expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
+      expect(heap_o_shh.heap_array[6].title).to eq 'Donnie Darko'
+      expect(heap_o_shh.find(mad_max_2)).to eq false
+    end
+  end
+  describe 'delete' do
+    it "deletes a bottom node and keeps the integrity of the heap" do
+    heap_o_shh.insert(braveheart)
+    heap_o_shh.insert(jedi)
+    heap_o_shh.insert(shawshank)
+    expect(heap_o_shh.heap_array[0].title).to eq 'Braveheart'
+    expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+    expect(heap_o_shh.heap_array[2].title).to eq 'The Shawshank Redemption'
+    heap_o_shh.delete(shawshank)
+    expect(heap_o_shh.heap_array[0].title).to eq 'Braveheart'
+    expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+    expect(heap_o_shh.heap_array[2]).to eq nil
+    end
+    it "deletes top node and keeps integerty of the stack " do
+      heap_o_shh.insert(jedi)
+      heap_o_shh.insert(braveheart)
+      heap_o_shh.insert(donnie)
+      heap_o_shh.insert(inception)
+      heap_o_shh.insert(district)
+      heap_o_shh.insert(shawshank)
+      heap_o_shh.insert(pacific_rim)
+      expect(heap_o_shh.heap_array[0].title).to eq 'Pacific Rim'
+      expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+      expect(heap_o_shh.heap_array[2].title).to eq 'Braveheart'
+      expect(heap_o_shh.heap_array[3].title).to eq 'Inception'
+      expect(heap_o_shh.heap_array[4].title).to eq 'District 9'
+      expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
+      expect(heap_o_shh.heap_array[6].title).to eq 'Donnie Darko'
+      heap_o_shh.delete(pacific_rim)
+      expect(heap_o_shh.heap_array[0].title).to eq 'Braveheart'
+      expect(heap_o_shh.heap_array[1].title).to eq 'Star Wars: Return of the Jedi'
+
+      expect(heap_o_shh.heap_array[2].title).to eq 'Donnie Darko'
+
+      expect(heap_o_shh.heap_array[3].title).to eq 'Inception'
+      expect(heap_o_shh.heap_array[4].title).to eq 'District 9'
+      expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
+
+    end
+  end
+
+
+
+    describe "#print" do #DONE
+      before do
+        heap_o_shh.insert(jedi)
+        heap_o_shh.insert(braveheart)
+        heap_o_shh.insert(donnie)
+      end
+      specify { expect { heap_o_shh.print }.to output("Braveheart 78\nStar Wars: Return of the Jedi 80\nDonnie Darko 85\n").to_stdout }
+    end
+
 end
