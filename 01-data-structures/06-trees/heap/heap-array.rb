@@ -1,5 +1,5 @@
 require_relative 'array_nodes'
-require 'pry'
+
 
 class Heap
   attr_reader :heap_array

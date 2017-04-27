@@ -16,8 +16,10 @@ earny = BinarySearchTree.new
 # }
 benchmark.bm do |x|
   x.report("print BinarySearchTree") do
+    i= 1
     for i in [100000]
        bert.Node.new("this is node #{i}", i)
        puts "#{i}"
+       i=i+1
      end
   end
