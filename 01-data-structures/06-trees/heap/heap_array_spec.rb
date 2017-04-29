@@ -176,6 +176,16 @@ RSpec.describe Heap, type: Class do
       expect(heap_o_shh.heap_array[5].title).to eq 'The Shawshank Redemption'
 
     end
+
+    it 'returns false when the node is not in heap' do #DONE
+      heap_o_shh.insert(pacific_rim)
+      heap_o_shh.insert(matrix)
+      heap_o_shh.insert(hope)
+      expect(heap_o_shh.heap_array[0].title).to eq 'Pacific Rim'
+      expect(heap_o_shh.heap_array[1].title).to eq 'The Matrix'
+      expect(heap_o_shh.heap_array[2].title).to eq 'Star Wars: A New Hope'
+      expect(heap_o_shh.delete(mad_max_2)).to eq false
+    end
   end
 
 
