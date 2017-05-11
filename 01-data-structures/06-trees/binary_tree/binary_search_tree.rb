@@ -40,23 +40,26 @@ class BinarySearchTree
   end
 
   def find_depth(node_stack, data, parent=nil)
-    puts node_stack.inspect
+    #puts node_stack.inspect
     return nil if node_stack.empty? || data == nil
     now_serving = node_stack.pop
     if now_serving.title == data
-      puts "#{now_serving}= data and it should end"
+      #puts "#{now_serving}= data and it should end"
       now_serving.parent = parent
       return now_serving
     else
       if now_serving && now_serving.right  #Check if node has a right node property
         node_stack.push(now_serving.right)#if so add it to stack
-        puts "we got one to the right"
+      #  puts "we got one to the right"
       end
       if now_serving && now_serving.left #Check if node has a left node property
         node_stack.push(now_serving.left)#if so add it to stack
-        puts "we got one to the left"
+      #  puts "we got one to the left"
       end
-      find_depth(node_stack, data, now_serving)
+
+
+      # edit this part out to make itteriate
+      #find_depth(node_stack, data, now_serving)
 
     end
   end

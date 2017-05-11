@@ -1,11 +1,11 @@
 include RSpec
 
-require_relative 'bacon'
+require_relative 'bacon-two'
 
 
-RSpec.describe Bacon, type: Class do
+RSpec.describe Bacontwo, type: Class do
 
-  let (:bacon_slice) {Bacon.new}
+  let (:bacon_slice) {Bacontwo.new}
   let (:foot_loose) {Node.new("Footloose",["Kevin Bacon","Lori Singer",	"John Lithgow","Dianne Wiest","Chris Penn","Sarah Jessica Parker", "John Laughlin","Elizabeth Gorcey",	"Frances Lee McCain","Jim Youngs"])}
   let (:apollo13) {Node.new("Apollo 13", ["Tom Hanks", "Bill Paxton",	"Kevin Bacon","Gary Sinise",'Ed Harris',"Kathleen Quinlan","Mary Kate Schellhardt","Emily Ann Lloyd","Miko Hughes", "Max Elliott Slade"])}
   let (:savingprivateryan){Node.new("Saving Private Ryan",["Tom Hanks", "Tom Sizemore", "Edward Burns", "Barry Pepper", "Adam Goldberg", "Vin Diesel", "Giovanni Ribisi", "Jeremy Davies", "Matt Damon", "Ted Danson"])}
@@ -23,6 +23,45 @@ RSpec.describe Bacon, type: Class do
   let (:independenceday){Node.new("Independence Day", ["Will Smith", "Bill Pullman", "Jeff Goldblum", "Mary McDonnell", "Judd Hirsch", "Robert Loggia", "Randy Quaid", "Margaret Colin", "Vivica A. Fox", "James Rebhorn"]  )}
 
   describe "#insert(node)" do
+    it "inserts movies into the array" do
+      bacon_slice.insert_movies_into_array(foot_loose)
+      bacon_slice.insert_movies_into_array(apollo13)
+      bacon_slice.insert_movies_into_array(matrix)
+      expect(bacon_slice.movie_array.length).to eq 3
+
+            #having trouble with these
+      expect(bacon_slice.zero_degree_movies.length).to eq 2
+      expect(bacon_slice.zero_degree_movies[0].title).to eq "Footloose"
+
+
+
+    end
+
+
+    it "returns true on a really easy test" do
+      # bacon_slice.insert_movies_into_array(foot_loose)
+      # bacon_slice.insert_movies_into_array(apollo13)
+      # bacon_slice.insert_movies_into_array(savingprivateryan)
+      # bacon_slice.insert_movies_into_array(matrix)
+      bacon_slice.insert_movies_into_array(afewgoodmen)
+      # bacon_slice.insert_movies_into_array(somethingsgottagive)
+      # bacon_slice.insert_movies_into_array(thegodfather)
+      # bacon_slice.insert_movies_into_array(misery)
+      # bacon_slice.insert_movies_into_array(titanic)
+      # bacon_slice.insert_movies_into_array(backtothefuture)
+       bacon_slice.insert_movies_into_array(marsattacks)
+      # bacon_slice.insert_movies_into_array(tremors)
+      # bacon_slice.insert_movies_into_array(lakeplacid)
+      # bacon_slice.insert_movies_into_array(xmenfirstclass)
+      # bacon_slice.insert_movies_into_array(independenceday)
+      bacon_slice.find_the_input("Mars Attacks!","Glenn Close")
+    end
+
+
+
+
+
+
     it "returns true on a easy test" do
       # bacon_slice.insert_movies_into_array(foot_loose)
       # bacon_slice.insert_movies_into_array(apollo13)

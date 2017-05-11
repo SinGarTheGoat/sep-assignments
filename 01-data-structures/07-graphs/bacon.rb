@@ -9,8 +9,8 @@ class Bacon
 
 
   def initialize
-    @movie_array = Array.new
-    @answer_array = Array.new
+    @movie_array = []
+    @answer_array = Answernode.new
     @zero_degree_movies = Array.new
     @zero_degree_actors = Array.new
     @starting_movie = nil
@@ -24,7 +24,7 @@ class Bacon
       if acctor == "Kevin Bacon"
       @zero_degree_movies << @movie_array.last
       @zero_degree_actors << @movie_array.last.cast
-      #puts "just added #{@movie_array.last.movie} to @one_degree  "
+      puts "just added #{@movie_array.last.movie} to @one_degree  "
       end
     end
     #puts "now inserting #{movie.movie}"
@@ -32,6 +32,11 @@ class Bacon
 
   def find_the_input(film, actor)
     movie_counter = 0
+
+    @movie_array.each do |x|
+      puts "added the movie #{x.movie}"
+    end
+
     @movie_array.each {|node|
       if node.movie == film
         actor_count = 0
@@ -50,8 +55,9 @@ class Bacon
           end
           actor_count = actor_count+1
         }
+      else
+        movie_counter = movie_counter+1
       end
-      movie_counter = movie_counter+1
     }
     puts "What the hell, I could not find #{actor} in #{film}"
     return false

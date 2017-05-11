@@ -39,15 +39,15 @@ class Heap
     delete(@heap_array[0])
   end
 
-  def find_left_child(index)
+  def find_left_child(index) #finds left child for a given index, is called by delete function
     2 * index + 1
   end
 
-  def find_right_child(index)
+  def find_right_child(index) #finds right child for a given index, is called by delete function
      2 * index + 2
   end
 
-  def is_a_leaf?(index)
+  def is_a_leaf?(index) #if a node is a leaf it is on the bottom row of our heap, is called by delete function
     index >=(@heap_array.length-1)/2
   end
 
@@ -85,21 +85,26 @@ class Heap
     l_child = @heap_array[find_left_child(index)] ##to find the child nodes of the node that was just swaped with the deleted node
 
     if l_child.rating < r_child.rating # determins witch of the two nodes to swap
-      temp = @heap_array[index]
-      temp2 = l_child
+
+      temp = @heap_array[index] #These four lines save the nodes to be swaped in temp nodes
+      temp2 = l_child            #and then swaps their places in the array
       @heap_array[index] = temp2
       @heap_array[find_left_child(index)] = temp
-      the_chosen_index = find_left_child(index)
+
+      the_chosen_index = find_left_child(index) #The chosen index refers to the next indice that needs to be compaired and possibly swapped
     else
-      temp = @heap_array[index]
-      temp2 = r_child
+
+      temp = @heap_array[index] #These four lines save the nodes to be swaped in temp nodes
+      temp2 = r_child            #and then swaps their places in the array
       @heap_array[index] = temp2
       @heap_array[find_right_child(index)] = temp
-      the_chosen_index = find_right_child(index)
+
+      the_chosen_index = find_right_child(index)  #The chosen index refers to the next indice that needs to be compaired and possibly swapped
     end
 
-    unless is_a_leaf?(index)  then
-      if @heap_array[find_right_child(the_chosen_index)] && @heap_array[find_left_child(the_chosen_index)] # determins if the child indices exist otherwise we are likley to get an error
+    unless is_a_leaf?(index)  then #calls is_a_leaf? method to determine if we are at the bottom of the heap
+
+      if @heap_array[find_right_child(the_chosen_index)] && @heap_array[find_left_child(the_chosen_index)] # determins if the child indices exist otherwise we will get an error
         if @heap_array[the_chosen_index].rating < @heap_array[find_right_child(the_chosen_index)] || @heap_array[the_chosen_index].rating < @heap_array[find_left_child(the_chosen_index)] #determins if the newly swaped node is less than its child
           swap_down(the_chosen_index) #Sends the new index recursivly back into the function
         end
@@ -127,6 +132,4 @@ class Heap
       puts "#{node.title} #{node.rating}"
     end
   end
-
-
 end
