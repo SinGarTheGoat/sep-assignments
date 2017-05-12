@@ -64,7 +64,7 @@ class Bacontwo
   def find_da_bacon(movie, actor)
     temp_node =  Node.new(movie, actor)
     unless @answer_array.title.include?(movie) && @answer_array.cast.include?(actor)
-      @answer_array << Node.new(movie, actor)
+      @answer_array << temp_node
     end
     puts "wezzzz here"
 
@@ -109,7 +109,7 @@ class Bacontwo
   def out_put_answer   # We should stop after this method runs
     @answer_array.each do |answer_node|
       puts "#{answer_node.cast} was in #{answer_node.title}"
-    end 
+    end
     puts "with Kevin MOTHERFUCKING Bacon"
   end
 

@@ -11,14 +11,19 @@ class BinarySearchTree
      @counter = true
   end
 
-  def insert(root, node)
+
+  def insert(node)
+    insert_internal(@root, node)
+  end
+
+  def insert_internal(root, node)
     if node.rating >  root.rating #ifinput node is bigger than node in tree
       if root.right == nil  #if nil, we have found where to set it
         root.right = node
       else
         #route_node = route_node.right
         #if the branch was not nil reset route_node to route node.right and Recursively call insert
-        insert(root.right, node)
+        insert_internal(root.right, node)
       end
     else #if incoming node is smaller than node in tree
       if root.left == nil #if nil, we have found where to set it
@@ -26,7 +31,7 @@ class BinarySearchTree
       else
         # route_node = route_node.left
           #if the branch was not nil reset route_node to route node.left and Recursively call insert
-        insert(root.left, node)
+        insert_internal(root.left, node)
       end
     end
   end
@@ -59,7 +64,7 @@ class BinarySearchTree
 
 
       # edit this part out to make itteriate
-      #find_depth(node_stack, data, now_serving)
+      find_depth(node_stack, data, now_serving)
 
     end
   end

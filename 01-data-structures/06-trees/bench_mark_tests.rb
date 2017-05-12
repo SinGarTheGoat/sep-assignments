@@ -10,23 +10,18 @@ earny = BinarySearchTree.new(root)
 
 Benchmark.bm(20) do |x|
   x.report("insert BinarySearchTree") do
-    for i in 1..100
-      if i == 50
-        node =  Node.new("this is node 50", 50)
-        earny.insert(root, node)
-      else
-        num =  Random.rand(1..100)
-        node = Node.new("this is node #{num}", num)
-        earny.insert(root, node)
-      end
-    end
+
+    big_ass_array = (1..100000).to_a.shuffle!
+      big_ass_array.each do |i|
+        earny.insert( Node.new("this is node #{i}", i))
+      end 
   end
   x.report("insert heap") do
-    for i in 1..10000
+    for i in 1..100000
       if 1 == 50000
         node = Node.new("this is node 50000", 50000)
       else
-      num =  Random.rand(1..10000)
+      num =  Random.rand(1..100000)
       node = Node.new("this is node #{num}", num)
       bert.insert(node)
       end
@@ -53,7 +48,7 @@ end
 
 Benchmark.bm(20) do |x|
   x.report("delete  BinarySearchTree 500th node") do
-    node =  Node.new("this is node 50", 50)
+    node =  Node.new("this is node 50", 50)   #this one
     # earny.printf
     # earny.print_node(Node.new("this is node 500", 500))
     earny.delete(root, node)
