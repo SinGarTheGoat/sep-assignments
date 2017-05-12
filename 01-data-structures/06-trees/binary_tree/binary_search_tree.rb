@@ -38,35 +38,26 @@ class BinarySearchTree
 
 
   #Recursive Depth First Search
-  def find(root, data)
-    node_stack= []
-    node_stack.push(root)
-    find_depth(node_stack, data)
+  def find(rating)
+    find_depth(rating, @root)
   end
 
-  def find_depth(node_stack, data, parent=nil)
-    #puts node_stack.inspect
-    return nil if node_stack.empty? || data == nil
-    now_serving = node_stack.pop
-    if now_serving.title == data
-      #puts "#{now_serving}= data and it should end"
-      now_serving.parent = parent
-      return now_serving
-    else
-      if now_serving && now_serving.right  #Check if node has a right node property
-        node_stack.push(now_serving.right)#if so add it to stack
-      #  puts "we got one to the right"
-      end
-      if now_serving && now_serving.left #Check if node has a left node property
-        node_stack.push(now_serving.left)#if so add it to stack
-      #  puts "we got one to the left"
-      end
+  def find_depth(goal_rating, node)
 
 
-      # edit this part out to make itteriate
-      find_depth(node_stack, data, now_serving)
-
+    if goal_rating == nil || goal_rating <= 0
+      puts "that rating is invalid"
+      return nil
     end
+    if node == nil || node.rating == goal_rating
+      return node
+    elsif goal_rating < node.rating
+      return find_depth(goal_rating, node.left)
+    else
+      return find_depth(goal_rating, node.right)
+    end
+
+
   end
 
 
@@ -74,17 +65,44 @@ class BinarySearchTree
 
   def delete(root, data)
     return nil if !data
-    target = find(root, data)
-    if !(target.left || target.right)
+    target = find(data)
+    if !(target.left || target.right) #no chrildren
+      if @root.rating = data
+        @root = nil
+        return
+      end
       parent = target.parent
       if parent.left == target
         parent.left = nil
+        return
       else
         parent.right = nil
       end
+    elsif !(target.left && target.right)
+      random_num = rand(100)
+      if random_num.even?
+        predicesor(target)
+      else
+        sucessor(target)
+      end
+    else
+
     end
 
+  end
 
+  def predicesor(target)
+    target = target.left
+    while target.right != nil
+      target = target.right
+    end
+  end
+
+  def sucessor(target)
+    target = target.right
+    while target.left != nil
+      target = target.left
+    end
   end
 
   # Recursive Breadth First Search

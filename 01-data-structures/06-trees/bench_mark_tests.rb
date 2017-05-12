@@ -14,7 +14,7 @@ Benchmark.bm(20) do |x|
     big_ass_array = (1..100000).to_a.shuffle!
       big_ass_array.each do |i|
         earny.insert( Node.new("this is node #{i}", i))
-      end 
+      end
   end
   x.report("insert heap") do
     for i in 1..100000
@@ -31,10 +31,10 @@ end
 
 Benchmark.bm(20) do |x|
   x.report("find  BinarySearchTree") do
-    node =  Node.new("this is node 50", 50)
+    node = 50
     # earny.printf
     # earny.print_node(Node.new("this is node 500", 500))
-    earny.find(root, node)
+    earny.find(node)
   end
 
   x.report("find heap") do
@@ -48,7 +48,7 @@ end
 
 Benchmark.bm(20) do |x|
   x.report("delete  BinarySearchTree 500th node") do
-    node =  Node.new("this is node 50", 50)   #this one
+    node =   50  #this one
     # earny.printf
     # earny.print_node(Node.new("this is node 500", 500))
     earny.delete(root, node)
