@@ -8,4 +8,5 @@ class Node
     @movies = []
   end
 end
+
  

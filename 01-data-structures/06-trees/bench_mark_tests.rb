@@ -31,7 +31,7 @@ end
 
 Benchmark.bm(20) do |x|
   x.report("find  BinarySearchTree") do
-    node = 50
+    node = 50000
     # earny.printf
     # earny.print_node(Node.new("this is node 500", 500))
     earny.find(node)
@@ -48,7 +48,7 @@ end
 
 Benchmark.bm(20) do |x|
   x.report("delete  BinarySearchTree 500th node") do
-    node =   50  #this one
+    node =   50000  #this one
     # earny.printf
     # earny.print_node(Node.new("this is node 500", 500))
     earny.delete(root, node)

@@ -37,7 +37,7 @@ RSpec.describe Bacon, type: Class do
       # bacon_slice.insert_movies_into_array(lakeplacid)
       # bacon_slice.insert_movies_into_array(xmenfirstclass)
       # bacon_slice.insert_movies_into_array(independenceday)
-      bacon_slice.find_the_input("Mars Attacks!","Annette Bening")
+      bacon_slice.find_the_input("Mars Attacks!","Jack Nicholson")
     end
 
   end
