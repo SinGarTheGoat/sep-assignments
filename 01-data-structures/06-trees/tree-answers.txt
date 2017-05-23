@@ -1,0 +1,24 @@
+Q1- How much time does an average insertion consume in the Binary Search Tree
+    compared to the Heap?
+A1- The Heap was almost twice as fast completing the operation in 0.387674 of a
+    second compared with the binary search tree's time of 0.700117 for an
+    insertion
+
+Q2- How much time does finding 50000 in the Binary Search Tree consume
+    compared to the Heap?
+A2- The heap was over 3 times faster than Binary Search Tree completing the
+    task in 0.000008 of a second compared with the binary search tree's
+    0.000027 of a second.
+
+Q3- How much time does the average deletion consume in a Binary Search Tree
+    compared to the Heap?
+A3- Here the Binary Search Tree was 539 times faster with a time of 0.000019 a
+    second compared compared with the heap's time of 0.010241 a second.
+
+Q4- When would you use a Binary Search Tree and why?
+A4- when you want more control over your data and better search capabilities
+    a binary search tree is better.
+
+Q5- When would you use an Heap and why?
+    If you want to store vast amounts of data a heap can generally handle
+    bigger data sets
