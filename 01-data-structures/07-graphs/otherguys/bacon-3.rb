@@ -55,19 +55,14 @@ class AdjMatrix
   end
 
 
-  def find_index(actor_name)
-    current_index = 0
-    actor_found = false
-    while (current_index < @actors_array.length)
-      if (actor_name == @actors_array[current_index].name)
-        actor_found = true
-        break
+  # idetifyes index of the actor in @actors_array
+  def find_index(in_actor_name)
+    @actors_array.each_with_index do |actor, index|
+      if actor.name == in_actor_name
+        return index
       end
-      current_index += 1
     end
-
-    return actor_found ? current_index : nil
-
+    return nil
   end
 
   def print_matrix
@@ -90,6 +85,8 @@ class AdjMatrix
       curr_node = node_queue.pop
 
       return false if curr_node == nil
+      # blog sez "this block goes from actor_name to himself."
+      # e.g. bottom of the tree
       if curr_node == find_index(actor_name)
         node = @actors_array[curr_node]
         actors = [node.name]
@@ -98,13 +95,14 @@ class AdjMatrix
           node = @actors_array[node.back_pointer]
         end
 
+        # add the man himself KB
         actors << @actors_array[0].name
         return_string = ""
         index = 0
 
         while (index < actors.length - 1)
-        actor1 = actors[index]
-        actor2 = actors[index + 1]
+          actor1 = actors[index]
+          actor2 = actors[index + 1]
           common_movie = find_common_movie(actor1, actor2)
           string = "#{actor1} acted in #{common_movie} with #{actor2}\n"
           return_string += string
@@ -112,13 +110,15 @@ class AdjMatrix
         end
         return return_string
       end
+
+      # this block is for everything else
       matrix_size = @matrix.length
       children = (0..matrix_size-1).to_a.select do |i|
         @matrix[curr_node][i] == 1
       end
 
       children.each do |child|
-        unless @actors_array[child].visited == true
+        unless @actors_array[child].visited
           @actors_array[child].back_pointer = curr_node
           @actors_array[child].visited = true
         end

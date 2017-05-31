@@ -5,7 +5,7 @@ require_relative 'bacon-3'
 
 RSpec.describe AdjMatrix, type: Class do
 
-  let (:matrix) {AdjMatrix.new("Kevin Bacon")}
+  let (:matrix) {AdjMatrix.new("Kevin Bacon")}#{"Lori Singer"}"Kevin Bacon"
 
   #
   # let (:foot_loose) {Array.new(["Kevin Bacon","Lori Singer",	"John Lithgow","Dianne Wiest","Chris Penn","Sarah Jessica Parker", "John Laughlin","Elizabeth Gorcey",	"Frances Lee McCain","Jim Youngs"])} #"Footloose",
@@ -40,14 +40,14 @@ RSpec.describe AdjMatrix, type: Class do
         matrix.add_film(name, actors)
       end
       matrix.print_matrix
-      matrix.find_kevin_bacon("Lori Singer")
+    #  matrix.find_kevin_bacon("Lori Singer")
     end
 
     it "returns outputs results on a harder test" do
       imdb.each do |name , actors|
         matrix.add_film(name, actors)
       end
-        matrix.find_kevin_bacon("Tom Hanks")
+      puts  matrix.find_kevin_bacon("Edward Burns")
     end
   end
 

@@ -4,9 +4,7 @@ class Node
   def initialize(name)
     @name = name
     @visited = false
-    @index = nil
+    @index = nil   #tracks the actors place in the @actors_array
     @movies = []
   end
 end
-
- 
