@@ -1,3 +1,14 @@
+
+class Node
+  attr_accessor :title
+  attr_accessor :rating
+  def initialize(title, rating)
+    @title = title
+    @rating = rating
+  end
+end
+
+
 class Heapsort
 
   attr_reader :heap_array
@@ -35,6 +46,21 @@ class Heapsort
 
   def pop
     delete(@heap_array[0])
+  end
+
+  def sorted_list
+    sorted_array = []
+    puts @heap_array.length
+    @heap_array.each do |x|
+      puts "#{x.title} & #{x.rating}"
+    end
+
+    @heap_array.length
+    for x in 0..@heap_array.length-1
+      sorted_array << delete(@heap_array[0])
+    end
+    puts sorted_array.length
+
   end
 
   def find_left_child(index) #finds left child for a given index, is called by delete function
@@ -130,8 +156,6 @@ class Heapsort
       puts "#{node.title} #{node.rating}"
     end
   end
-
-
 
 
 end

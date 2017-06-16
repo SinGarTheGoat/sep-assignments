@@ -10,8 +10,10 @@ class Array
   end
 
 end
-ray = (0..100).to_a
-ray.shuffle!
-print ray
-
-print ray.quicksort
+# ray = (0..100).to_a
+# ray.shuffle!
+# #print ray
+#
+# print ray.quicksort
+#
+# my_method(key: value, key2: value2)
