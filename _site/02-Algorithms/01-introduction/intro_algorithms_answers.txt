@@ -1,0 +1,54 @@
+Using proper pseudo-code, describe three or more primitive
+algorithms used in your day-to-day life.
+
+1-Should I eat a peanut-butter and jelly sandwich?
+
+This code determines if i am hungry and how to make a peanut-butter and jelly 
+sandwich until you are no longer hungry.
+
+while HUNGER==true
+  if kitchen contains peanut-butter && jelly && bread
+    spread peanut-butter on 1 piece of bread
+    spread jelly on separate piece of bread
+    press together jelly and peanut-butter faces of bread.
+    eat peanut-butter and jelly sandwich
+  elseif
+    go to the store and buy (peanut-butter, jelly, bread)
+  endif
+endif
+
+This is the code I run for myself every morning when getting ready for work
+
+wake up
+if timeTillWork > 15
+  floss
+  mouthwash
+  brush teeth
+  get dressed
+  check email, facebook, reddit
+  have breakfast
+  drive to work
+elseif timeTillWork < 15 &&  timeTillWork > 5
+  floss
+  mouthwash
+  brush teeth
+  get dressed
+  drive to work
+else
+  panic
+  brush teeth
+  get dressed
+  drive to work
+endif
+
+
+how to determine your next move in tic-tac-toe
+
+if firstMove
+  take center square
+endif
+if opponent has claimed two of three squares in the same row including diagonal
+  claim last open square in row
+elseif a corner square is open
+  claim corner square
+endif

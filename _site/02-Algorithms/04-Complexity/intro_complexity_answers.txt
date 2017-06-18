@@ -1,0 +1,43 @@
+Q1- Describe an analogy for relating an algorithm that has efficiency O(1) and
+    another algorithm that has O(2n). An example would be:
+A2- The O(1) if graphed will be a straight line showing a one to one corrilation
+    where the length of a worst case search is directley tied to how many
+    objects are being searched. where a O(2n) will be about half as fast in a
+    worst case scnario
+
+Q2- In plain English, what is the best case scenario for binary search?
+Q3- With a binary search as with all searches the best case is when the first
+    inspected is the desired one. for this to occour with a binary search the
+    item would need to be in the exact middle.
+
+Q3- In plain English, what is the worst-case scenario for binary search?
+A3-???
+
+Q4- In plain English, what is the bounded-case scenario for binary search?
+A4- ???
+
+Q5- Create graph
+
+Q6- What's the asymptotic limit as n approaches infinity for the function
+    defined by the values above?
+A6- 11... It a approches but never reaches 11.
+
+Q7- What is the Big-O of an algorithm that has the data points above?
+A7- O(2^n)
+
+Q8- Write a Ruby script that calculates and prints the N number, given an
+    iteration, for linear search in the worst case (similar to the graph above).
+A8- Is this cheating?
+    def num_o_iterations(array)
+      array.length
+    end
+
+Q9- Create a graph from the output using Google Sheets or other graphing software. Analyze the graph and denote its Big-O somewhere on the graph.
+A9- 
+
+Q10-  What is the Big-O of binary search?
+A10-
+
+Q11-  What is the Big-Ω of binary search?
+
+Q12-  What is the Big-Ө of binary search?

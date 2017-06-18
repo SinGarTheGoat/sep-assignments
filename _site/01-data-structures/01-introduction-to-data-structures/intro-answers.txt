@@ -1,0 +1,21 @@
+Q1- How does your data structure allow developers
+    to access and manipulate the data?
+A1- in all three of the tested files there are instance variables
+    enable a developer to access pertinent data from the code.
+
+Q2- If a developer wanted to find a specific element in your
+    data structure, how would you search for it?
+A1- The answer to this question would vary depending on which file
+    you are searching. Both screen.rb and line.rb have specific
+    functions for searching for elements, or you could write a
+    block to iterate over some of the array objects.
+
+Q3- What other real-world data can each structure represent?
+A3- I could imagine using a similar data structure to represent 
+    people in a line to buy season tickets for a event, this could be
+    hooked up to a if loop where if they do not keep up on dues they
+    are dropped from their spot. To add to this analogy one might use
+    the scree.rb data structure to display who is in what seat where
+    the outer arrays are the rows and the inner arrays are the
+    individual seats, one more outer set of arrays could represent
+    sections.
