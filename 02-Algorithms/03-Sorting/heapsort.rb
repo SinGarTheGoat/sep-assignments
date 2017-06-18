@@ -49,10 +49,11 @@ class Heapsort
   end
 
   def sorted_list
-    sorted_array = []
-    puts @heap_array.length
-    @heap_array.each do |x|
-      puts "#{x.title} & #{x.rating}"
+    sorted_array = @heap_array
+    sorted_array.rating.sort!
+    puts "sorted_array.length= #{sorted_array.length} in sorted_list"
+    sorted_array.each do |x|
+      puts "#{x.title} & #{x.rating} @!"
     end
 
     @heap_array.length
