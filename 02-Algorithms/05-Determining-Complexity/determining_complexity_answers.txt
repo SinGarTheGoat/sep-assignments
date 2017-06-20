@@ -1,0 +1,23 @@
+Q1- What's the Big-O of the following algorithm? Submit your work and
+    reasoning with your solution.
+    def goodbye_world(n)
+      puts "Goodbye World! #{n}"
+    end
+A1- It is constant, because it takes the same amount of time regardless of the
+    input
+
+Q2- What's the Big-O of the following algorithm? Submit your work and
+    reasoning with your solution.
+    def find_largest(collection)
+      largest = collection[0]
+      collection.length.times do |i|
+        if collection[i] >= largest
+          largest = collection[i]
+        end
+      end
+    largest
+    end
+A2- This bloc is leniar because the time it will take to excute is directly tied
+    to how big the collection is.
+
+Q3-
