@@ -49,11 +49,11 @@ class Heapsort
   end
 
   def sorted_list
-    sorted_array = @heap_array
-    sorted_array.rating.sort!
+     sorted_array = @heap_array
+    # sorted_array.rating.sort!
     puts "sorted_array.length= #{sorted_array.length} in sorted_list"
     sorted_array.each do |x|
-      puts "#{x.title} & #{x.rating} @!"
+      puts "#{x.title} & #{x.rating}"
     end
 
     @heap_array.length
@@ -95,6 +95,10 @@ class Heapsort
         end
       else
         @heap_array.delete(node) # If the node to be deleted is a leaf node it is simply deleted and thanks to rubys functionality the array is compressed
+        #I think this is where my sin lies.
+
+
+
       end
     else
       return false #returns false if node is not in array.
