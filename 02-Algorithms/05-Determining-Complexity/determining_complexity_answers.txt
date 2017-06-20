@@ -20,4 +20,106 @@ Q2- What's the Big-O of the following algorithm? Submit your work and
 A2- This bloc is leniar because the time it will take to excute is directly tied
     to how big the collection is.
 
-Q3-
+Q3- What's the Big-O of the following algorithm? Submit your work and reasoning
+    with your solution.
+    def find_largest(collection)
+      largest = collection[0][0]
+      collection.length.times do |i|
+        subcollection = collection[i]
+        subcollection.length.times do |i|
+          if subcollection[i] >= largest
+            largest = subcollection[i]
+          end
+        end
+      end
+    largest
+    end
+A3- This is quadradic with a big O score of n^2 because it has a loop nested
+    inside of a loop.
+
+Q4- What's the Big-O of the following algorithm? Submit your
+    work and reasoning with your solution.
+    def numbers(n)
+      if (n == 0)
+        return 0
+      elsif (n == 1)
+        return 1
+      else
+        return numbers(n-1) + numbers(n-2)
+      end
+    end
+A4- This equastion is leinar because it is only being called a set number of
+    times.
+
+Q5- What's the Big-O of the following algorithm? Submit your work and
+    reasoning with your solution.
+
+    def iterative(n)
+      num1 = 0
+      num2 = 1
+
+      i = 0
+      while i < n-1
+        tmp = num1 + num2
+        num1 = num2
+        num2 = tmp
+        i+=1
+      end
+
+      num2
+    end
+A5- This is leinar because the function will take as long perportionaly to how
+    big the number n is.
+
+Q6- What's the Big-O of the following algorithm? Submit your work and
+    reasoning with your solution.
+    def sort(collection, from=0, to=nil)
+      if to == nil
+        # Sort the whole collection, by default
+        to = collection.count - 1
+      end
+
+      if from >= to
+        # Done sorting
+        return
+      end
+
+      # Take a pivot value, at the far left
+      pivot = collection[from]
+
+      # Min and Max pointers
+      min = from
+      max = to
+
+      # Current free slot
+      free = min
+
+      while min < max
+        if free == min # Evaluate collection[max]
+          if collection[max] <= pivot # Smaller than pivot, must move
+            collection[free] = collection[max]
+            min += 1
+            free = max
+          else
+            max -= 1
+          end
+        elsif free == max # Evaluate collection[min]
+          if collection[min] >= pivot # Bigger than pivot, must move
+            collection[free] = collection[min]
+            max -= 1
+            free = min
+          else
+            min += 1
+          end
+        else
+          raise "Inconsistent state"
+        end
+      end
+
+      collection[free] = pivot
+
+      quick_sort collection, from, free - 1
+      quick_sort collection, free + 1, to
+
+      collection
+    end

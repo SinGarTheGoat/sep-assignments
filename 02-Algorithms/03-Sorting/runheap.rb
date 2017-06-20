@@ -1,13 +1,13 @@
 require_relative 'heapsort'
 
-class Node
-  attr_accessor :title
-  attr_accessor :rating
-  def initialize(title, rating)
-    @title = title
-    @rating = rating
-  end
-end
+# class Node
+#   attr_accessor :title
+#   attr_accessor :rating
+#   def initialize(title, rating)
+#     @title = title
+#     @rating = rating
+#   end
+# end
 
 a =(0...50).to_a.shuffle
 b = []
