@@ -18,6 +18,7 @@ class Heapsort
 
   def insert(node)
     @heap_array << node #Every node starts by being enterd into the last index of the array
+
     child_index = @heap_array.length - 1 #This varible identifies what index the incoming node is at.
     parent_index = (child_index-1)/2 # Through the magic of intiger division this equastion calculates the parent index of the incoming node
 
@@ -26,6 +27,16 @@ class Heapsort
         swap_up(@heap_array[child_index], child_index, @heap_array[parent_index], parent_index) #If the nodes needs to be swaped it passes the nodes and their indices to the swap_up method
       end
     end
+    # string = ""
+    # @heap_array.each do  |x|
+    #   string << "#{x.rating }, "
+    #
+    # end
+    # p string
+
+
+
+
   end
 
   def swap_up(child, child_index, parent, parent_index)
@@ -38,38 +49,41 @@ class Heapsort
     grandpa_index = (parent_index-1)/2 #Just like in the insert method now we find what the parent index of our swaped node is
 
     if grandpa_index >=0 #As before in the insert method this line ensures we do not go wrap around the array
-        if child.rating < @heap_array[grandpa_index].rating # Checks to see if swap_up function needs to be recursivly called
-          swap_up(@heap_array[parent_index], parent_index ,@heap_array[grandpa_index], grandpa_index) #sends new nodes back Through swap_up method
-        end
+      if child.rating < @heap_array[grandpa_index].rating # Checks to see if swap_up function needs to be recursivly called
+        swap_up(@heap_array[parent_index], parent_index ,@heap_array[grandpa_index], grandpa_index) #sends new nodes back Through swap_up method
       end
+    end
   end
 
   def pop
-    delete(@heap_array[0])
+    ggg = @heap_array[0]
+    @heap_array[0] = @heap_array.pop
+    swap_down(0)
+    return ggg
+    # delete(@heap_array[0])
   end
 
   def sorted_list
-     sorted_array = @heap_array
-    # sorted_array.rating.sort!
-    puts "sorted_array.length= #{sorted_array.length} in sorted_list"
-    sorted_array.each do |x|
-      puts "#{x.title} & #{x.rating}"
-    end
+    sorted_array = []
 
-    @heap_array.length
-    for x in 0..@heap_array.length-1
-      sorted_array << delete(@heap_array[0])
+    while @heap_array != nil
+      sorted_array << pop
+      puts "wat up"
+      p sorted_array.map { |e|
+        e.rating
+      }
     end
     puts sorted_array.length
-
   end
+
+
 
   def find_left_child(index) #finds left child for a given index, is called by delete function
     2 * index + 1
   end
 
   def find_right_child(index) #finds right child for a given index, is called by delete function
-     2 * index + 2
+    2 * index + 2
   end
 
   def is_a_leaf?(index) #if a node is a leaf it is on the bottom row of our heap, is called by delete function
@@ -77,6 +91,7 @@ class Heapsort
   end
 
   def delete(node)
+    puts "in delete"
     if @heap_array.include?(node)   #checks array to see if its in the heap, if not function returns false
 
       where_it_at = @heap_array.index(node) # finds the index of the node to be deleted
@@ -96,20 +111,17 @@ class Heapsort
       else
         @heap_array.delete(node) # If the node to be deleted is a leaf node it is simply deleted and thanks to rubys functionality the array is compressed
         #I think this is where my sin lies.
-
-
-
       end
     else
       return false #returns false if node is not in array.
     end
-
     return deleted_one #returns the deleted node
   end
 
 
   def swap_down(index) # A recursive function called by the delete function
-
+    puts 'swap_down'
+    p @heap_array.map{|n| n.rating}
     r_child = @heap_array[find_right_child(index)] # these two lines use the find_left_child & find_right_child functions
     l_child = @heap_array[find_left_child(index)] ##to find the child nodes of the node that was just swaped with the deleted node
 
@@ -134,7 +146,7 @@ class Heapsort
     unless is_a_leaf?(index)  then #calls is_a_leaf? method to determine if we are at the bottom of the heap
 
       if @heap_array[find_right_child(the_chosen_index)] && @heap_array[find_left_child(the_chosen_index)] # determins if the child indices exist otherwise we will get an error
-        if @heap_array[the_chosen_index].rating < @heap_array[find_right_child(the_chosen_index)] || @heap_array[the_chosen_index].rating < @heap_array[find_left_child(the_chosen_index)] #determins if the newly swaped node is less than its child
+        if @heap_array[the_chosen_index].rating < @heap_array[find_right_child(the_chosen_index)].rating || @heap_array[the_chosen_index].rating < @heap_array[find_left_child(the_chosen_index)].rating #determins if the newly swaped node is less than its child
           swap_down(the_chosen_index) #Sends the new index recursivly back into the function
         end
       end
@@ -147,8 +159,8 @@ class Heapsort
     @heap_array.each do |nood|
       if node == nood
         puts "#{nood.title} #{nood.rating}"
-         find_it = true
-         return find_it
+        find_it = true
+        return find_it
       end
 
       return false
@@ -161,6 +173,4 @@ class Heapsort
       puts "#{node.title} #{node.rating}"
     end
   end
-
-
 end
