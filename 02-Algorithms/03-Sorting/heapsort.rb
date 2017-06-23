@@ -123,11 +123,7 @@ class Heapsort
     puts 'swap_down'
     left = 2 * index + 1
     right = 2 * index + 2
-     if
-
-
-
-
+  
 
 
     p @heap_array.map{|n| n.rating}
@@ -160,7 +156,6 @@ class Heapsort
         end
       end
     end
-
   end
 
   def find(node)  #For this method should it print out if found and return nil if not found
