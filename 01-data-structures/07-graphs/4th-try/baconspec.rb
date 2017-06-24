@@ -28,6 +28,7 @@ RSpec.describe AdjMatrix, type: Class do
   # let (:wolf_of_wallstreet){Array.new(["Leonardo DiCaprio", "Jonah Hill", "Margot Robbie", "Matthew McConaughey", "Kyle Chandler", "Rob Reiner","Jon Bernthal", "Jon Favreau", "Jean Dujardin", "Joanna Lumley", "Cristin Milloti", "Christine Ebersole", "Shea Whigham", "Katarina Cas", "P.J. Byrne"])} #"The Wolf of Wall Street"
 
   let (:imdb){{
+    "Tremors" => ["Kevin Bacon", "Fred Ward", "Finn Carter", "Michael Gross", "Reba McEntire", "Robert Jayne", "Charlotte Stewart", "Tony Genaro", "Ariana Richards", "Richard Marcus"],
     "Footloose" => ["Kevin Bacon","Lori Singer",	"John Lithgow","Dianne Wiest","Chris Penn","Sarah Jessica Parker", "John Laughlin","Elizabeth Gorcey",	"Frances Lee McCain","Jim Youngs"],
     "Apollo 13" => ["Tom Hanks", "Bill Paxton",	"Kevin Bacon","Gary Sinise",'Ed Harris',"Kathleen Quinlan","Mary Kate Schellhardt","Emily Ann Lloyd","Miko Hughes", "Max Elliott Slade"],
     "Saving Private Ryan" => ["Tom Hanks", "Tom Sizemore", "Edward Burns", "Barry Pepper", "Adam Goldberg", "Vin Diesel", "Giovanni Ribisi", "Jeremy Davies", "Matt Damon", "Ted Danson"]

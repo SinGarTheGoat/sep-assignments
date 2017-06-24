@@ -4,6 +4,7 @@ class AdjMatrix
   attr_accessor :actors_array, :matrix, :film_hash
 
   def initialize(name)
+    @count =0
     root = Node.new(name) #is initilized with desired actor when the matrix is created
     root.index = 0  #initializes index of root actor used to track place in actor array
     @actors_array = [root] #an array of all the actors in the matrix
@@ -82,25 +83,37 @@ class AdjMatrix
   def find_kevin_bacon(actor_name)
     node_queue = [0]
 
-    loop do
+    loop do #starts and jumps down
+      @count += 1
+      puts @count
       curr_node = node_queue.pop
 
       return false if curr_node == nil
       # blog sez "this block goes from actor_name to himself."
       # e.g. bottom of the tree
-      if curr_node == find_index(actor_name)
+      if curr_node == find_index(actor_name) # "win" condition met here
+        actors = []
+
         node = @actors_array[curr_node]
-        actors = [node.name]
         while (node.back_pointer != 0)
-          actors << @actors_array[node.back_pointer].name
+          actors << node.name
           node = @actors_array[node.back_pointer]
         end
 
+        # node = @actors_array[curr_node]
+        # actors = [node.name]
+        # while (node.back_pointer != 0)
+        #   actors << @actors_array[node.back_pointer].name
+        #   node = @actors_array[node.back_pointer]
+        # end
+        #
+
         # add the man himself KB
         actors << @actors_array[0].name
+
+
         return_string = ""
         index = 0
-
         while (index < actors.length - 1)
           actor1 = actors[index]
           actor2 = actors[index + 1]
@@ -112,10 +125,10 @@ class AdjMatrix
         return return_string
       end
 
-      # this block is for everything else
-      matrix_size = @matrix.length
+      # this block is for everything else   real start of function
+      matrix_size = @matrix.length         #builds associations lists between actors and stores them in the chrildren array for each actor
       children = (0..matrix_size-1).to_a.select do |i|
-        @matrix[curr_node][i] == 1
+        @matrix[curr_node][i] == 1    #   condtional
       end
 
       children.each do |child|
