@@ -69,9 +69,9 @@ class Heapsort
     while @heap_array != nil
       sorted_array << pop
       puts "wat up"
-      p sorted_array.map { |e|
-        e.rating
-      }
+      # p sorted_array.map { |e|
+      #   e.rating
+      # }
     end
     puts sorted_array.length
   end
@@ -120,15 +120,17 @@ class Heapsort
 
 
   def swap_down(index) # A recursive function called by the delete function
-    puts 'swap_down'
+  #  puts 'swap_down'
     left = 2 * index + 1
     right = 2 * index + 2
-  
 
 
-    p @heap_array.map{|n| n.rating}
+
+  #  p @heap_array.map{|n| n.rating}
     r_child = @heap_array[find_right_child(index)] # these two lines use the find_left_child & find_right_child functions
+    puts "find_right_child(index)=#{find_right_child(index)}"
     l_child = @heap_array[find_left_child(index)] ##to find the child nodes of the node that was just swaped with the deleted node
+    puts "find_left_child=#{find_left_child}"
 
     if l_child.rating < r_child.rating # determins witch of the two nodes to swap
 
