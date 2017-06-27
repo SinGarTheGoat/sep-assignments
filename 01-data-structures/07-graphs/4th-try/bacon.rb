@@ -125,13 +125,13 @@ class AdjMatrix
         return return_string
       end
 
-      # this block is for everything else   real start of function
+      # this block is for when    real start of function
       matrix_size = @matrix.length         #builds associations lists between actors and stores them in the chrildren array for each actor
       children = (0..matrix_size-1).to_a.select do |i|
         @matrix[curr_node][i] == 1    #   condtional
       end
 
-      children.each do |child|
+      children.each do |child|  
         unless @actors_array[child].visited
           @actors_array[child].back_pointer = curr_node
           @actors_array[child].visited = true
