@@ -92,53 +92,49 @@ class AdjMatrix
       # blog sez "this block goes from actor_name to himself."
       # e.g. bottom of the tree
       if curr_node == find_index(actor_name) # "win" condition met here
-        actors = []
+        actors = []  #This is a array that contains the path of actors
 
-        node = @actors_array[curr_node]
-        while (node.back_pointer != 0)
-          actors << node.name
-          node = @actors_array[node.back_pointer]
+        node = @actors_array[curr_node]  #creats a node of the first actor from the node_queue array
+        while (node.back_pointer != 0) #Makes sure its back pointer has not been checked, indicating that the path has ben tried
+          actors << node.name # Adds the actors node to the actors array
+          node = @actors_array[node.back_pointer] #sets the next node to the previous actor to be added to actors array
         end
 
-        # node = @actors_array[curr_node]
-        # actors = [node.name]
-        # while (node.back_pointer != 0)
-        #   actors << @actors_array[node.back_pointer].name
-        #   node = @actors_array[node.back_pointer]
-        # end
-        #
+        #At this point the path is compleete and the only thing left to do is add Kevin Bacon
+
 
         # add the man himself KB
         actors << @actors_array[0].name
 
 
-        return_string = ""
+        return_string = "" #this initilizes our final string that we will create and return
         index = 0
-        while (index < actors.length - 1)
-          actor1 = actors[index]
+        while (index < actors.length - 1)  #Runs for as many itteriations as there are indicies in actors array
+          actor1 = actors[index] # it is using the index counter to walk up the path of actors
           actor2 = actors[index + 1]
-          common_movie = find_common_movie(actor1, actor2)
-          string = "#{actor1} acted in #{common_movie} with #{actor2}\n"
-          return_string += string
+          common_movie = find_common_movie(actor1, actor2) #returns common movie
+          string = "#{actor1} acted in #{common_movie} with #{actor2}\n" #constructs string
+          return_string += string  #adds string to the end of the string
           index += 1
         end
-        return return_string
+        return return_string #returns the final executed string.
       end
 
       # this block is for when    real start of function
       matrix_size = @matrix.length         #builds associations lists between actors and stores them in the chrildren array for each actor
-      children = (0..matrix_size-1).to_a.select do |i|
-        @matrix[curr_node][i] == 1    #   condtional
+      children = (0..matrix_size-1).to_a.select do |i| #The chrildren array is created and returns all actors that meet the condition below of having an association
+        @matrix[curr_node][i] == 1    #   condtional to indicatie if asscoiation exists
       end
 
-      children.each do |child|  
-        unless @actors_array[child].visited
-          @actors_array[child].back_pointer = curr_node
-          @actors_array[child].visited = true
+      children.each do |child|  #goes through all the actors the current actor has associations with
+        puts "child = #{child}"
+        unless @actors_array[child].visited  #this checks to see if an association has been tried alredy
+          @actors_array[child].back_pointer = curr_node #builds an associaton of 2 actors
+          @actors_array[child].visited = true #checks association as visited so it wont loop back over again
         end
       end
 
-      node_queue = children + node_queue
+      node_queue = children + node_queue #returns the array of the nodequie alredy in place as well as all new chrildren added
 
     end
   end
@@ -147,25 +143,16 @@ class AdjMatrix
 
 
   def find_common_movie(actor1, actor2)
-    actor1_index = find_index(actor1)
+    actor1_index = find_index(actor1) #finds the index of the actors
     actor2_index = find_index(actor2)
 
-    actor1_node = @actors_array[actor1_index]
+    actor1_node = @actors_array[actor1_index]# Assigns the actors node from their place in @actors_array
     actor2_node = @actors_array[actor2_index]
 
-    actor1_node.movies.each do |movie|
+    actor1_node.movies.each do |movie| #cycles through the first actors movies and looks for an association
       if actor2_node.movies.index(movie) != nil
-        return movie
+        return movie #returns the common movie
       end
     end
   end
-
-
-
-
-
-
-
-
-
 end
