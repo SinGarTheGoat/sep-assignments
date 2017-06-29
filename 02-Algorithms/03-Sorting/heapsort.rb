@@ -5,6 +5,7 @@ class Node
   def initialize(title, rating)
     @title = title
     @rating = rating
+
   end
 end
 
@@ -56,10 +57,12 @@ class Heapsort
   end
 
   def pop
-    ggg = @heap_array[0]
-    @heap_array[0] = @heap_array.pop
-    swap_down(0)
-    return ggg
+    # ggg = @heap_array[0]
+    # @heap_array[0] = @heap_array.pop
+    # swap_down(0)
+    dood =  @heap_array.pop
+  #  puts dood.rating
+    return  dood
     # delete(@heap_array[0])
   end
 

@@ -51,7 +51,7 @@ Benchmark.bm(14) do |x|
     hello_array.each do |x|
       temp = Node.new(x, a.pop)
         pile_o_shhh.insert(temp)
-      #  puts "#{temp.title} #{temp.rating}"
+      #puts   "#{temp.title} #{temp.rating}"
         #puts pile_o_shhh.heap_array
     end
     pile_o_shhh.sorted_list
