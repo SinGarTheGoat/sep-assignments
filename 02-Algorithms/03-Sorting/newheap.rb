@@ -98,7 +98,7 @@ class Heap
     elsif @heap_array[1]
       if @heap_array[0]<@heap_array[1]
         swap_down(0)
-      end 
+      end
     end
     puts largest
     return largest
@@ -142,8 +142,9 @@ class Heap
 
   def sorted_list
     sorted = []
-    until @heap_array.length == 0
+     @heap_array.each do |x|
       sorted << pop
+      puts "hello from sorted list"
     end
     return sorted
   end
