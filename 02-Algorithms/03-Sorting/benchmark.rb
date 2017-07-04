@@ -1,6 +1,6 @@
 require 'benchmark'
 require_relative 'bucket_sort'
-require_relative 'heapsort'
+require_relative 'thirdheap'
 require_relative 'quicksort'
 
 #shuffeled_array = (1..50).to_a.shuffle!
@@ -31,30 +31,16 @@ Benchmark.bm(14) do |x|
 
   x.report('heap') do
     shuffeled_array = (1..50).to_a.shuffle!
-    puts "shuffeled_array= #{shuffeled_array.length}"
-    #puts shuffeled_array
 
-    a = shuffeled_array
-    puts "a.length= #{a.length}"
-
-    hello_array = []
-    pile_o_shhh = Heapsort.new
+    pile_o_shhh = Heap.new
 
 
-    for i in 0..a.length-1
-      hello = (0...8).map { (65 + rand(26)).chr }.join
-      hello_array << hello
-      #puts "hello_array.length= #{hello_array.length} "
-      #puts hello_array.last
-    end
-
-    hello_array.each do |x|
-      temp = Node.new(x, a.pop)
-        pile_o_shhh.insert(temp)
+    shuffeled_array.each do |x|
+        pile_o_shhh.insert(x)
       #puts   "#{temp.title} #{temp.rating}"
         #puts pile_o_shhh.heap_array
     end
-    pile_o_shhh.sorted_list
+    p pile_o_shhh.sorted_list
     puts "ya done son!"
     #pile_o_shhh.sorted_list
 
