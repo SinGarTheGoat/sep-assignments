@@ -26,3 +26,5 @@ def poorly_written_ruby(*arrays)
   # Return the sorted array
   sorted_array
 end
+
+p  poorly_written_ruby([2,3,5],[1,5,3],[9,4,2])
