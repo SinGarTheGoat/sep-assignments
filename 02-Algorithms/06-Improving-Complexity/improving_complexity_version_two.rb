@@ -9,7 +9,7 @@ def poorly_written_ruby(*arrays)
 
   sorted_array = [combined_array.delete_at(combined_array.length-1)]
 
-  for val in combined_array
+  for val in combined_array #change this to a quick sort
     i = 0
     while i < sorted_array.length
       if val <= sorted_array[i]

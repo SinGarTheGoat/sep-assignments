@@ -26,3 +26,4 @@ def poorly_written_ruby(*arrays)
   # Return the sorted array
   sorted_array
 end
+# can't be improved in an asymptotic sense because you are returning n and it will always increase with N
