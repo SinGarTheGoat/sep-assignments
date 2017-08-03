@@ -4,7 +4,8 @@ class Shorttrip
 
   def initialize
     @city_array = []
-    @da_winner = Node2.new("place holder", 99999.9999)
+    @da_winner = Node2.new("place holder", 9999999.9999)
+    @global_string
 
   end
 
@@ -13,7 +14,7 @@ class Shorttrip
       distannce_from_the_2 = Math.sqrt((place.x - city.x)**2+(place.y - city.y)**2)
       place.hash_names_distance[city.name] = distannce_from_the_2
       city.hash_names_distance[place.name] = distannce_from_the_2
-      puts "distance from #{city.name} to #{@city_array.first.name} is #{city.hash_names_distance[@city_array.first.name]}"
+    #  puts "distance from #{city.name} to #{@city_array.first.name} is #{city.hash_names_distance[@city_array.first.name]}"
 
     end
     @city_array << city
@@ -28,7 +29,7 @@ class Shorttrip
       min_distance =  Float::INFINITY
       for city in @city_array
 
-        puts " city.name = #{city.name} city_node.name = #{city_node.name} city.hash_names_distance[city_node.name] = #{city.hash_names_distance[city_node.name]}"
+      #  puts " city.name = #{city.name} city_node.name = #{city_node.name} city.hash_names_distance[city_node.name] = #{city.hash_names_distance[city_node.name]}"
         if  city.visited == false && city.hash_names_distance[city_node.name] < min_distance
           next_city = city
           min_distance =  city.hash_names_distance[city_node.name]
