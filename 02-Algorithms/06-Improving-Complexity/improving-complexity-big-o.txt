@@ -1,0 +1,8 @@
+
+
+version one uses the .sort method that utilizes a quicksort algorithm and has a
+big-O of n^2.
+
+version two also uses a quicksort algorithm and has a big-O of n^2.
+
+I used a selection sort for version 3 because it has favorable space complexity.
